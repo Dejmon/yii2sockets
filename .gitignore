@@ -1,3 +1,4 @@
 node_modules
 server/configs/*.json
 static/node-client-config.js
+.idea/*
