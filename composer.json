@@ -1,5 +1,5 @@
 {
-    "name": "digitv/yii2sockets",
+    "name": "Dejmon/yii2sockets",
     "version": "1.0.2",
     "description": "Node.js web-sockets support",
     "keywords": ["yii2", "node", "nodejs", "web-sockets"],
