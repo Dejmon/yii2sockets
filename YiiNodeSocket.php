@@ -1,5 +1,5 @@
 <?php
-namespace digitv\yii2sockets;
+namespace dejmon\yii2sockets;
 use Yii;
 use yii\base\Component;
 
@@ -215,52 +215,6 @@ class YiiNodeSocket extends Component {
             'uid' => $uid,
             'channel' => $channel,
         ];
-        return $this->sendDataToNodeJS($data, $url);
-    }
-
-    /**
-     * Adds new channel
-     * @param string $channel
-     * @return mixed
-     */
-    public function addChannel($channel)
-    {
-        $url = $this->getNodeBaseUrl() . $this->nodeJsServerBase . '/add_channel';
-        $data = [
-            'channel' => $channel,
-        ];
-
-        return $this->sendDataToNodeJS($data, $url);
-    }
-
-    /**
-     * Adds user to channels
-     * @param integer $uid
-     * @param array $channels
-     * @return mixed
-     */
-    public function addUserToChannels($uid, $channels)
-    {
-        $url = $this->getNodeBaseUrl() . $this->nodeJsServerBase . '/add_user_to_channels';
-        $data = [
-            'uid' => $uid,
-            'channels' => $channels,
-        ];
-        return $this->sendDataToNodeJS($data, $url);
-    }
-
-    /**
-     * Adds new channel
-     * @param string $channels
-     * @return mixed
-     */
-    public function addChannels($channels)
-    {
-        $url = $this->getNodeBaseUrl() . $this->nodeJsServerBase . '/add_channels';
-        $data = [
-            'channels' => $channels,
-        ];
-
         return $this->sendDataToNodeJS($data, $url);
     }
 

@@ -1,23 +1,19 @@
 {
     "name": "dejmon/yii2sockets",
-    "version": "1.1.0",
+    "version": "1.0.2",
     "description": "Node.js web-sockets support",
     "keywords": ["yii2", "node", "nodejs", "web-sockets"],
     "type": "yii2-extension",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/Dejmon/yii2sockets/issues",
-        "source": "https://github.com/Dejmon/yii2sockets"
+        "issues": "https://github.com/dejmon/yii2sockets/issues",
+        "source": "https://github.com/dejmon/yii2sockets"
     },
     "authors": [
         {
             "name": "Digit",
             "email": "digit.vova@gmail.com"
-        },
-		{
-			"name": "Dejmon",
-			"email" "dejmon10@gmail.com"
-		}
+        }
     ],
     "minimum-stability": "dev",
     "require": {

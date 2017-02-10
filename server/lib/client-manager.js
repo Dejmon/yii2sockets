@@ -184,18 +184,6 @@ ClientManager.prototype.addChannel = function (channel) {
     if(!this.channels.hasOwnProperty(channel)) {
         this.channels[channel] = {socketIds: {}};
     }
-    this.logger.log(this.logPrefix + 'addChannel: Channel "'+channel+'" has been added');
-    return true;
-};
-
-/**
- * Adds channels to server
- */
-ClientManager.prototype.addChannels = function (channels) {
-    for (var i in channels) {
-        var channel = channels[i];
-        this.addChannel(channel);
-    }
     return true;
 };
 
@@ -267,7 +255,6 @@ ClientManager.prototype.addSessionToChannel = function (sid, channel, autoCreate
     }
     return true;
 };
-
 /**
  * Add user ID to channel
  */
@@ -285,32 +272,6 @@ ClientManager.prototype.addUserToChannel = function (uid, channel, autoCreate) {
     }
     for (var sessionId in this.users[uid].sessions) {
         this.addSessionToChannel(sessionId, channel);
-    }
-    return true;
-};
-
-/**
- * Add user ID do channels
- */
-ClientManager.prototype.addUserToChannels = function (uid, channels, autoCreate) {
-    if(typeof this.users[uid] === "undefined" || !Object.keys(this.users[uid].sessions).length || !Object.keys(this.users[uid].sockets).length) {
-        this.logger.log(this.logPrefix + 'addUserToChannel: User "'+uid+'" not exists');
-        return false;
-    }
-    for (var i in channels) {
-        var channel = channels[i];
-        if(!this.channelExists(channel)) {
-            if(typeof autoCreate === "undefined" || !autoCreate) {
-                this.logger.log(this.logPrefix + 'addUserToChannel: Channel "'+channel+'" not exists');
-                return false;
-            }
-            this.addChannel(channel);
-        }
-    }
-
-    for (var socketId in this.users[uid].sockets) {
-        var socket = this.sockets[socketId];
-        this.addSessionToChannelMultiple(socket, channels);
     }
     return true;
 };

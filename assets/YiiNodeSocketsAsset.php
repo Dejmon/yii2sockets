@@ -1,5 +1,5 @@
 <?php
-namespace digitv\yii2sockets\assets;
+namespace dejmon\yii2sockets\assets;
 
 use Yii;
 use yii\web\AssetBundle;
@@ -8,7 +8,7 @@ use yii\web\AssetBundle;
  */
 class YiiNodeSocketsAsset extends AssetBundle {
     public $name = 'YiiNodeSockets asset';
-    public $sourcePath = '@vendor/digitv/yii2sockets/static';
+    public $sourcePath = '@vendor/dejmon/yii2sockets/static';
     public $baseUrl = '@web';
     public $css = [];
     public $js = [];

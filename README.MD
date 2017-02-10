@@ -1,14 +1,14 @@
-It's Node.js server integration module (web-sockets) based on `digitv/yii2sockets`
+Node.js server integration module (web-sockets)
 
 **Install with composer**
 ```
-composer require digitv/yii2sockets:1.x-dev
+composer require dejmon/yii2sockets:1.x-dev
 ```
 Add console command controller to the config (_controllerMap section_):
 ```
 'controllerMap' => [
     ...
-    'node-sockets' => '\digitv\yii2sockets\commands\YiiNodeSocketsController',
+    'node-sockets' => '\dejmon\yii2sockets\commands\YiiNodeSocketsController',
     ...
 ],
 ```
@@ -17,7 +17,7 @@ Add session component to the 'components' section of main config:
 'components' => [
     ...
         'session' => [
-            'class' => 'digitv\yii2sockets\YiiNodeSocketSession',
+            'class' => 'dejmon\yii2sockets\YiiNodeSocketSession',
             'keyPrefix' => 'sess_preffix_',
             'timeout' => 600,
         ],
@@ -43,7 +43,7 @@ And add component do those configs (_https not implemented yet_):
 'components' => [
     ...
         'nodeSockets' => [
-            'class' => 'digitv\yii2sockets\YiiNodeSocket',
+            'class' => 'dejmon\yii2sockets\YiiNodeSocket',
             'nodeJsHost' => 'localhost',
             'nodeJsPort' => 3001,
             'nodeJsScheme' => 'http',

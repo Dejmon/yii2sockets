@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $nodeSockets \digitv\yii2sockets\YiiNodeSocket
+ * @var $nodeSockets \dejmon\yii2sockets\YiiNodeSocket
  * @var $redis yii\redis\Connection
  */
 ?>
