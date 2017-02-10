@@ -219,6 +219,52 @@ class YiiNodeSocket extends Component {
     }
 
     /**
+     * Adds new channel
+     * @param string $channel
+     * @return mixed
+     */
+    public function addChannel($channel)
+    {
+        $url = $this->getNodeBaseUrl() . $this->nodeJsServerBase . '/add_channel';
+        $data = [
+            'channel' => $channel,
+        ];
+
+        return $this->sendDataToNodeJS($data, $url);
+    }
+
+    /**
+     * Adds user to channels
+     * @param integer $uid
+     * @param array $channels
+     * @return mixed
+     */
+    public function addUserToChannels($uid, $channels)
+    {
+        $url = $this->getNodeBaseUrl() . $this->nodeJsServerBase . '/add_user_to_channels';
+        $data = [
+            'uid' => $uid,
+            'channels' => $channels,
+        ];
+        return $this->sendDataToNodeJS($data, $url);
+    }
+
+    /**
+     * Adds new channel
+     * @param string $channels
+     * @return mixed
+     */
+    public function addChannels($channels)
+    {
+        $url = $this->getNodeBaseUrl() . $this->nodeJsServerBase . '/add_channels';
+        $data = [
+            'channels' => $channels,
+        ];
+
+        return $this->sendDataToNodeJS($data, $url);
+    }
+
+    /**
      * Send any data to Node.js server
      * @param mixed $data
      * @param string $url

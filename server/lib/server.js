@@ -37,6 +37,9 @@ server.start = function (conf) {
     app.post('/server/add_session_to_channel', routes.addSessionToChannel);
     app.post('/server/remove_user_from_channel', routes.removeUserFromChannel);
     app.post('/server/remove_session_from_channel', routes.removeSessionFromChannel);
+    app.post('/server/add_channel', routes.addChannel);
+    app.post('/server/add_user_to_channels', routes.addUserToChannels);
+    app.post('/server/add_channels', routes.addChannels);
     //app.post('/server/reload_user_channels', routes.updateUserData);
 
     app.all('*', routes.send404);

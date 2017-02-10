@@ -7,7 +7,7 @@ if(typeof io !== "undefined") {
     socket.on('connect', function () {
         console.log('connected to socket.io');
         jQuery.ajaxSetup({
-            headers: { 'Yii-Node-Socket-id': socket.id }
+            headers: { 'yii-node-socket-id': socket.id }
         });
     });
 

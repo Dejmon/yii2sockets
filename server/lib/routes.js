@@ -70,6 +70,21 @@ Routes.prototype.removeSessionFromChannel = function (request, response) {
     response.json({success: result});
 };
 
+Routes.prototype.addChannel = function (request, response) {
+    var result = request.clientManager.addChannel(request.body.channel);
+    response.json({success: result});
+};
+
+Routes.prototype.addUserToChannels = function (request, response) {
+    var result = request.clientManager.addUserToChannels(request.body.uid, request.body.channels, true);
+    response.json({success: result});
+};
+
+Routes.prototype.addChannels = function (request, response) {
+    var result = request.clientManager.addChannels(request.body.channels);
+    response.json({success: result});
+};
+
 Routes.prototype.updateUserData = function (request, response) {
     var sid = request.body.sid;
 

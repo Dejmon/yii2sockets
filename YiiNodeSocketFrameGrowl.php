@@ -28,14 +28,15 @@ class YiiNodeSocketFrameGrowl extends YiiNodeSocketFrameBasic {
     const MESSAGE_TYPE_INFO = 'info';
     const MESSAGE_TYPE_DANGER = 'danger';
     const MESSAGE_TYPE_WARNING = 'warning';
+    const MESSAGE_TYPE_MINIMALIST = 'minimalist';
 
     protected $_text;
     protected $_title;
     protected $_icon;
     protected $_url;
     protected $_url_target = '_self';
-    protected $_type = self::MESSAGE_TYPE_SUCCESS;
-    protected $_time = 5000;
+    protected $_type = self::MESSAGE_TYPE_MINIMALIST;
+    protected $_time = 50000000000000000000000000000000000000;
     protected $_allow_dismiss = 1;
 
     /**
@@ -243,6 +244,7 @@ class YiiNodeSocketFrameGrowl extends YiiNodeSocketFrameBasic {
             self::MESSAGE_TYPE_INFO,
             self::MESSAGE_TYPE_DANGER,
             self::MESSAGE_TYPE_WARNING,
+            self::MESSAGE_TYPE_MINIMALIST,
         ];
         if(!in_array($this->_type, $types)) $this->setType(self::MESSAGE_TYPE_SUCCESS);
     }

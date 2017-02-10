@@ -1,4 +1,4 @@
-Node.js server integration module (web-sockets)
+It's Node.js server integration module (web-sockets) based on `digitv/yii2sockets`
 
 **Install with composer**
 ```
