@@ -16,7 +16,6 @@ class YiiNodeSocketsController extends Controller {
      * Generate Node.js server configs
      */
     public function actionInit() {
-        $this->compileClient();
         $this->compileServer();
     }
 
@@ -40,19 +39,6 @@ EXAMPLES
  * yii node-sockets init
    Compile config files fo Node.js
 EOD;
-	}
-
-    /**
-     * @return int
-     */
-    protected function compileClient() {
-		printf("Compile client config\n");
-        $nodeSockets = Yii::$app->nodeSockets;
-        $redis = Yii::$app->redis;
-		ob_start();
-		include $this->confSource . '/client_config.js.php';
-		$output = ob_get_clean();
-		return file_put_contents(__DIR__ . '/../static/node-client-config.js', $output);
 	}
 
 	protected function compileServer() {

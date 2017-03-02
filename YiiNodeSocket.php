@@ -12,7 +12,7 @@ class YiiNodeSocket extends Component {
      * Cookie name
      * @var string
      */
-    public $sessionVarName = 'PHPSESSID';
+    public $sessionVarName = 'SESSID';
     public $sessionKeyPrefix = '';
     public $serviceKey = 'qwerty';
 

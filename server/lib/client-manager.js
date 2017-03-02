@@ -127,8 +127,8 @@ ClientManager.prototype.addSocket = function (socket) {
  */
 ClientManager.prototype.updateClientSocketData = function (socket, redisClient) {
     var data = {sockets: {}, session: {}, cookies: {}, sid: '', uid: 0}, self = this;
-    if(socket.handshake.headers.cookie) {
-        data.cookies = cookie.parse(socket.handshake.headers.cookie);
+    if(socket.handshake.query[this.settings.cookieName]) {
+        data.cookies[this.settings.cookieName] = socket.handshake.query[this.settings.cookieName];
         data.sid = typeof data.cookies[this.settings.cookieName] !== "undefined" ? data.cookies[this.settings.cookieName] : '';
         //disconnect if no session cookie
         if(!data.sid) {

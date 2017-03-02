@@ -20,17 +20,4 @@ class YiiNodeSocketSession extends Session {
     {
         return $this->keyPrefix . md5($id);
     }
-
-    public function open()
-    {
-        parent::open();
-        if(Yii::$app->nodeSockets && !empty(Yii::$app->nodeSockets->channelsByPermissions)) {
-            /* @var $nodeSockets YiiNodeSocket */
-            $nodeSockets = Yii::$app->nodeSockets;
-            foreach (Yii::$app->nodeSockets->channelsByPermissions as $channel => $permission) {
-                $can = $permission == '*' || (!Yii::$app->user->isGuest && Yii::$app->user->can($permission));
-                if($can) $nodeSockets->addUserSessionChannel($channel);
-            }
-        }
-    }
 }
