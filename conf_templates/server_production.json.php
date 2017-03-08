@@ -11,7 +11,8 @@
     "sessionKeyPrefix": "<?= $nodeSockets->sessionKeyPrefix ?>",
     "redis": {
         "hostname": "<?= $redis->hostname ?>",
-        "port": <?= $redis->port ?>
+        "port": <?= $redis->port ?>,
+        "db": <?= $redis->database ?>
     },
     "serviceKey": "<?= $nodeSockets->serviceKey ?>",
     "debug": false

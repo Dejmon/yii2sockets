@@ -107,7 +107,7 @@ ClientManager.prototype.cleanUp = function () {
  */
 ClientManager.prototype.addSocket = function (socket) {
     var self = this;
-    var redisClient = redis.createClient(this.settings.redis.port, this.settings.redis.hostname);
+    var redisClient = redis.createClient(this.settings.redis.port, this.settings.redis.hostname, {db: this.settings.redis.db});
 
     self.logger.debug(self.logPrefix + 'addSocket: Client '+socket.id+' connected');
 

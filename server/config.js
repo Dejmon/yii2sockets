@@ -44,6 +44,13 @@ var conf = convict({
             default: 6379,
             env: "REDIS_PORT",
             arg: "redis-port"
+        },
+        db: {
+            doc: "Nubmer of database",
+            format: "int",
+            default: 0,
+            env: "REDIS_DB",
+            arg: "redis-db"
         }
     },
     serviceKey: {
