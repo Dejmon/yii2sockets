@@ -115,6 +115,10 @@ ClientManager.prototype.addSocket = function (socket) {
         self.updateClientSocketData(socket, redisClient);
     });
 
+    redisClient.on("error", function (err) {
+        self.logger.debug("Redis client Error " + err);
+    });
+
     socket.on('disconnect', function() {
         self.logger.debug(self.logPrefix + 'addSocket: Client '+socket.id+' disconnected');
         redisClient.quit();
