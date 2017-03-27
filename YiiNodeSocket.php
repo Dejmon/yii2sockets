@@ -8,6 +8,7 @@ use yii\base\Component;
  */
 
 class YiiNodeSocket extends Component {
+
     /**
      * Cookie name
      * @var string
@@ -21,6 +22,18 @@ class YiiNodeSocket extends Component {
     public $nodeJsPort = '3001';
     public $nodeJsScheme = 'http';
     public $nodeJsServerBase = '/server';
+
+    /**
+     * Ssl key path
+     * @var string
+     */
+    public $sslKeyPath;
+
+    /**
+     * Ssl Cert path
+     * @var string
+     */
+    public $sslCertPath;
 
     public $channelsByPermissions = [];
 

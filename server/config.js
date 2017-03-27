@@ -9,6 +9,13 @@ var conf = convict({
         env: "NODE_ENV",
         arg: "node_env"
     },
+    scheme: {
+        doc: "Scheme of address",
+        format: String,
+        default: "http",
+        env: "SCHEME",
+        arg: "scheme"
+    },
     hostname: {
         doc: "The IP address to bind.",
         format: String,
@@ -69,6 +76,16 @@ var conf = convict({
         default: false,
         env: "DEBUG",
         arg: "debug"
+    },
+    sslKeyPath: {
+        doc: "SSL key path",
+        format: String,
+        default: ""
+    },
+    sslCertPath: {
+        doc: "SSL cert path",
+        format: String,
+        default: ""
     }
 });
 

@@ -2,9 +2,10 @@
  * SubModule for setting up the server.
  */
 'use strict';
-
+var fs = require('fs');
 var express = require('express');
 var http = require('http');
+var https = require('https');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var ClientManager = require('./client-manager');
@@ -44,7 +45,15 @@ server.start = function (conf) {
 
     app.all('*', routes.send404);
 
-    httpServer = http.createServer(app);
+    if (settings.scheme === 'http') {
+        httpServer = http.createServer(app);
+    } else {
+        httpServer = https.createServer({
+            key: fs.readFileSync(settings.sslKeyPath),
+            cert: fs.readFileSync(settings.sslCertPath)
+        }, app);
+    }
+
     httpServer.listen(settings.port);
 
     var io = require('socket.io')(httpServer);

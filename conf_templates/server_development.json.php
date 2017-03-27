@@ -5,6 +5,7 @@
  */
 ?>
 {
+    "scheme": "<?= $nodeSockets->nodeJsScheme ?>",
     "port": <?= $nodeSockets->nodeJsPort ?>,
     "hostname": "<?= $nodeSockets->nodeJsHost ?>",
     "cookieName": "<?= $nodeSockets->sessionVarName ?>",
@@ -15,5 +16,7 @@
         "db": <?= $redis->database ?>
     },
     "serviceKey": "<?= $nodeSockets->serviceKey ?>",
-    "debug": true
+    "debug": true,
+    "sslKeyPath": "<?= $nodeSockets->sslKeyPath ?>",
+    "sslCertPath": "<?= $nodeSockets->sslCertPath ?>"
 }
