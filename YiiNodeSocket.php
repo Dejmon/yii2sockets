@@ -286,6 +286,7 @@ class YiiNodeSocket extends Component {
     public function sendDataToNodeJS($data, $url) {
         $curl = curl_init($url);
         curl_setopt_array($curl, [
+            CURLOPT_CAINFO => $this->sslCertPath,
             CURLOPT_POST => 1,
             CURLOPT_POSTFIELDS => http_build_query($data),
             CURLOPT_RETURNTRANSFER => true,
