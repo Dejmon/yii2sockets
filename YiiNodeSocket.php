@@ -2,7 +2,8 @@
 namespace dejmon\yii2sockets;
 use Yii;
 use yii\base\Component;
-
+use yii\base\Exception;
+use yii\helpers\VarDumper;
 /**
  *
  */
@@ -282,6 +283,7 @@ class YiiNodeSocket extends Component {
      * @param mixed $data
      * @param string $url
      * @return mixed
+     * @throws Exception
      */
     public function sendDataToNodeJS($data, $url) {
         $curl = curl_init($url);
@@ -292,10 +294,18 @@ class YiiNodeSocket extends Component {
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => [ 'NodejsServiceKey: ' . $this->serviceKey ],
         ]);
-        $nodeOut = curl_exec($curl);
-        //try to decode JSON data
-        $nodeOutJSON = @json_decode($nodeOut, true);
-        curl_close ($curl);
+        try {
+            $nodeOut = curl_exec($curl);
+            if (!$nodeOut) {
+                throw new Exception(curl_error($curl));
+            }
+            //try to decode JSON data
+            $nodeOutJSON = @json_decode($nodeOut, true);
+            curl_close ($curl);
+        } catch (Exception $e) {
+            Yii::error(VarDumper::dumpAsString($e->getMessage(), 3));
+            throw new Exception('Curl (sendDataToNodeJs) error!');
+        }
         return $nodeOutJSON ? $nodeOutJSON : $nodeOut;
     }
 
