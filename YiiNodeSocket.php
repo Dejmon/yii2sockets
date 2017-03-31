@@ -286,6 +286,7 @@ class YiiNodeSocket extends Component {
      * @throws Exception
      */
     public function sendDataToNodeJS($data, $url) {
+        $result = false;
         $curl = curl_init($url);
         curl_setopt_array($curl, [
             CURLOPT_CAINFO => $this->sslCertPath,
@@ -302,11 +303,11 @@ class YiiNodeSocket extends Component {
             //try to decode JSON data
             $nodeOutJSON = @json_decode($nodeOut, true);
             curl_close ($curl);
+            $result = $nodeOutJSON ? $nodeOutJSON : $nodeOut;
         } catch (Exception $e) {
             Yii::error(VarDumper::dumpAsString($e->getMessage(), 3));
-            throw new Exception('Curl (sendDataToNodeJs) error!');
         }
-        return $nodeOutJSON ? $nodeOutJSON : $nodeOut;
+        return $result;
     }
 
     /**
