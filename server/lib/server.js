@@ -50,7 +50,10 @@ server.start = function (conf) {
     } else {
         httpServer = https.createServer({
             key: fs.readFileSync(settings.sslKeyPath),
-            cert: fs.readFileSync(settings.sslCertPath)
+            cert: fs.readFileSync(settings.sslCertPath),
+            ca: fs.readFileSync(settings.sslCaPath),
+            requestCert: false,
+            rejectUnauthorized: false
         }, app);
     }
 

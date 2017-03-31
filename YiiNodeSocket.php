@@ -36,6 +36,12 @@ class YiiNodeSocket extends Component {
      */
     public $sslCertPath;
 
+    /**
+     * SSL CA path
+     * @var string
+     */
+    public $sslCaPath;
+
     public $channelsByPermissions = [];
 
     public $userSocketId;

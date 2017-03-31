@@ -86,6 +86,11 @@ var conf = convict({
         doc: "SSL cert path",
         format: String,
         default: ""
+    },
+    sslCaPath: {
+        doc: "SSL CA path",
+        format: String,
+        default: ""
     }
 });
 

@@ -18,5 +18,6 @@
     "serviceKey": "<?= $nodeSockets->serviceKey ?>",
     "debug": true,
     "sslKeyPath": "<?= $nodeSockets->sslKeyPath ?>",
+    "sslCaPath": "<?= $nodeSockets->sslCaPath ?>",
     "sslCertPath": "<?= $nodeSockets->sslCertPath ?>"
 }
